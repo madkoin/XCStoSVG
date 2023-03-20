@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Convert XCS to SVG files</title>
+  </head>
+  <body>
+    <div id="app">
+
+      <ui5-file-uploader id="fp" hide-input>
+        <ui5-button>Select *.xcs file</ui5-button>
+      </ui5-file-uploader>
+
+      <ui5-tabcontainer id="tabContainer" fixed content-background-design="Transparent">
+        <ui5-tab text="Canvas 1" selected>
+          <div id="result1" class="result"></div>
+        </ui5-tab>
+      </ui5-tabcontainer>
+
+    </div>
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>
