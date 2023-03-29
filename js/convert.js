@@ -26,6 +26,7 @@ let getId = o => {
     if (import.meta.env.DEV) {
         return `id="${o.id}" `;
     }
+    return "";
 };
 
 let getFill = o => {
