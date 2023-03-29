@@ -15,22 +15,6 @@ let getTransform = (o, bPos = true, bRotate = true, bScale = true) => {
         s += ` rotate(${o.angle},  ${x}, ${y})`;
     }
 
-    // if (o.skew.x) {
-    //     s += ` skewX(${o.skew.x})`;
-    // }
-    //
-    // if (o.skew.y) {
-    //     s += ` skewY(${o.skew.y})`;
-    // }
-
-    // if (o.localSkew.x) {
-        // s += ` skewX(30)`;
-    // }
-
-    // if (o.localSkew.y) {
-    //     s += ` skewY(${o.localSkew.y * 50})`;
-    // }
-
     if (bPos) {
         s = `translate(${o.x}, ${o.y}) ` + s;
     }
@@ -57,8 +41,7 @@ const convert = {
         return `<path ${getId(o)}d="${o.dPath}" ${getFill(o)} transform="${getTransform(o, true, false)}"/>`;
     },
     RECT: o => {
-        aDefs.push(`<rect id="${o.id}" width="${o.width}" height="${o.height}" ${getFill(o)} />`);
-        return `<use href="#${o.id}" x="${o.x}" y="${o.y}" width="${o.width}"/>`;
+        return `<rect id="${o.id}" width="${o.width}" height="${o.height}" x="${o.x}" y="${o.y}" ${getFill(o)} transform="${getTransform(o, false, true, false)}"/>`;
     },
     CIRCLE: o => {
         return `<ellipse ${getId(o)}cx="${o.x}" cy="${o.y}" rx="${o.width / 2}" ry="${o.height / 2}" transform="${getTransform(o, false, true, false)}" ${getFill(o)} />`;
@@ -72,11 +55,25 @@ const convert = {
                 </g>`;
     },
     TEXT: o => {
-        return o.charJSONs.map(c => {
-            c.x = c.graphicX;
-            c.y = c.graphicY;
-            return convert.PATH(c);
-        }).join("");
+        if (o.charJSONs) {
+            return o.charJSONs.map(c => {
+                c.x = c.graphicX;
+                c.y = c.graphicY;
+                return convert.PATH(c);
+            }).join("");
+        } else {
+            // This mode would rather be only for generated files
+            let aStyle = [],
+                oStyle = o.style;
+
+            if (oStyle.fontFamily) {
+                aStyle.push(`font-family: ${oStyle.fontFamily}`);
+            }
+            if (oStyle.fontSize) { // 0.359 is a magic number which seems to bring the scale just right
+                aStyle.push(`font-size: ${oStyle.fontSize * 0.2818}pt`);
+            }
+            return `<text ${getId(o)} transform="${getTransform(o, false)}" dominant-baseline="mathematical" x="${o.x}" y="${o.y}" style="${aStyle.join(";")}">${o.text}</text>`;
+        }
     },
     PEN: o => {
         let a = [];

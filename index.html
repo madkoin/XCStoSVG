@@ -1,25 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Convert XCS to SVG files</title>
-  </head>
-  <body>
-    <div id="app">
+{{> header}}
 
-      <ui5-file-uploader id="fp" hide-input>
-        <ui5-button>Select *.xcs file</ui5-button>
-      </ui5-file-uploader>
-
-      <ui5-tabcontainer id="tabContainer" fixed content-background-design="Transparent">
-        <ui5-tab text="Canvas 1" selected>
-          <div id="result1" class="result"></div>
-        </ui5-tab>
-      </ui5-tabcontainer>
-
+<div class="row">
+  <div class="col text-center">
+    <ui5-file-uploader id="fp" accept=".xcs" hide-input>
+      <ui5-button>Select *.xcs file</ui5-button>
+    </ui5-file-uploader>
+    <br>
+    <ui5-button id="download_zip" icon="download" design="Transparent" icon-end class="mt-2 hide">Download all as *.zip</ui5-button>
+  </div>
+</div>
+<div class="row">
+  <div class="col text-muted text-secondary">
+    <div class="card mt-2">
+      <div class="card-body pb-0">
+        <ul id="notes">
+          <li>This is a BETA grade service. Some things might not convert properly. Especially skewed shapes!</li>
+          <li>Files are never uploaded to a remote server. Conversion happens in the browser and files never leave your computer.</li>
+        </ul>
+      </div>
     </div>
-    <script type="module" src="./js/main.js"></script>
-  </body>
-</html>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col" id="tab_container">
+    <ui5-tabcontainer id="tabContainer" class="hide" fixed content-background-design="Transparent">
+      <ui5-tab text="Canvas 1" selected>
+        <div id="result1" class=""></div>
+      </ui5-tab>
+    </ui5-tabcontainer>
+  </div>
+</div>
+{{> footer}}

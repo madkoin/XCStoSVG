@@ -5,15 +5,39 @@
   --grid-light: #e1e1e1;
 }
 
-.result {
+#copy {
+  font-size: 10px;
+  color: #939393;
+}
+
+main *:not(:defined) {
+  display: none;
+}
+
+.result svg {
   border: solid #000 1px;
-  height: 780px;
   background-size: 20px 20px;
   background-image:
           linear-gradient(to right, var(--grid-light) 1px, transparent 1px),
           linear-gradient(to bottom, var(--grid-light) 1px, transparent 1px);
 }
 
-.result.big {
-  height: 1860px;
+.test {
+  border: solid #000 1px;
+  background-size: 75px 75px;
+  background-image:
+          linear-gradient(to right, var(--grid-light) 1px, transparent 1px),
+          linear-gradient(to bottom, var(--grid-light) 1px, transparent 1px);
+}
+
+#notes {
+  font-size: 0.9em;
+}
+
+.file_name {
+  font-size: 0.9em;
+}
+
+.hide {
+  display: none;
 }

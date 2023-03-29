@@ -1,14 +1,25 @@
 import "../css/style.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.min.js";
 import "@ui5/webcomponents/dist/FileUploader.js";
 import "@ui5/webcomponents/dist/Button.js";
 import "@ui5/webcomponents/dist/TabContainer.js";
 import "@ui5/webcomponents/dist/Tab.js";
+import "@ui5/webcomponents-icons/dist/download.js";
 
 import convert from "./convert.js";
+import util from "./util.js";
 
 const fileUploader = document.querySelector("#fp"),
       resultDiv = document.querySelector("#result1"),
       tabContainer = document.querySelector("#tabContainer");
+
+let iCanvas = 0,
+    sFileName = "";
+
+let getSVGName = (sName, sCanvas) => {
+    return `${sName.slice(0, -4)}_${sCanvas.replaceAll(" ", "_")}.svg`;
+};
 
 fileUploader.addEventListener("change", event => {
     const oFile = event.target.files[0];
@@ -28,14 +39,63 @@ fileUploader.addEventListener("change", event => {
                 let oProcessed = convert.toSVG(oJSON),
                     a = [];
 
+                sFileName = oFile.name;
+
                 oProcessed.aCanvas.forEach((oCanvas, i) => {
                     a.push(`<ui5-tab text="${oCanvas.title}" ${i === 0 ? "selected" : ""}>
-                      <div id="result${i}" class="result${oCanvas.big ? " big" : ""}">${oCanvas.svg}</div>
-                    </ui5-tab>`)
+                              <ui5-button id="button_${i}" class="download" icon-end design="Positive" icon="download">Download</ui5-button>
+                              <p class="file_name text-muted text-secondary mt-2">File name: <span id="file_name_${i}">${getSVGName(oFile.name, oCanvas.title)}</span></p>
+                              <div id="result${i}" class="result">${oCanvas.svg}</div>
+                            </ui5-tab>`);
                 });
 
+                iCanvas = oProcessed.aCanvas.length;
+
+                document.getElementById("download_zip").classList.toggle("hide", !(oProcessed.aCanvas.length > 1));
+
                 tabContainer.innerHTML = a.join("");
+
+                document.getElementById("tabContainer").classList.remove("hide");
             }
         });
     }
-})
+});
+
+document.getElementById("tab_container").addEventListener("click", e => {
+    if (e.target.tagName !== "UI5-BUTTON") {
+        return;
+    }
+
+    let sID = e.target.id.split("_").pop(),
+        sSVG = document.getElementById(`result${sID}`).innerHTML,
+        sFile = document.getElementById(`file_name_${sID}`).innerText;
+
+    let blob = new Blob([sSVG], {
+        type: "application/xml",
+    });
+
+    util.downloadBlob(blob, sFile);
+
+    // gtag('event', sEvent, {
+    //     'zip': `${bZip}`,
+    //     'file': sFile
+    // });
+});
+
+document.getElementById("download_zip").addEventListener("click", e => {
+    let aFiles = [];
+
+    for (let i = 0;i < iCanvas;i++) {
+        let sSVG = document.getElementById(`result${i}`).innerHTML,
+            sFile = document.getElementById(`file_name_${i}`).innerText;
+
+        aFiles.push({
+            blob: new Blob([sSVG], {
+                type: "application/xml",
+            }),
+            file: sFile
+        });
+    }
+
+    util.downloadAsZip(aFiles, sFileName.slice(0, -4) + ".zip");
+});
