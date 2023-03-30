@@ -1,5 +1,4 @@
-let aExcludeLog = [],
-    aDefs = [];
+let aExcludeLog = [];
 
 let getTransform = (o, bPos = true, bRotate = true, bScale = true) => {
     let s = "";
@@ -40,21 +39,19 @@ let getFill = o => {
 const convert = {
     PATH: o => {
         let sTranslate = `translate(${o.graphicX}, ${o.graphicY})`;
-        return `<path ${getId(o)}d="${o.dPath}" ${getFill(o)} transform="${sTranslate} ${getTransform(o, false, false)}"/>`;
+        return `<path ${getId(o)}d="${o.dPath}" ${getFill(o)} transform="${sTranslate} ${getTransform(o, false, false)}" stroke-width="0.3"/>`;
     },
     RECT: o => {
-        return `<rect id="${o.id}" width="${o.width}" height="${o.height}" x="${o.x}" y="${o.y}" ${getFill(o)} transform="${getTransform(o, false, true, false)}"/>`;
+        return `<rect id="${o.id}" width="${o.width}" height="${o.height}" x="${o.x}" y="${o.y}" ${getFill(o)} transform="${getTransform(o, false, true, false)}" stroke-width="0.3"/>`;
     },
     CIRCLE: o => {
-        return `<ellipse ${getId(o)} rx="${o.width / 2}" ry="${o.height / 2}" transform="${getTransform(o, false, true, false)} translate(${o.x + (o.width / 2)}, ${o.y + (o.height / 2)})" ${getFill(o)} />`;
+        return `<ellipse ${getId(o)} rx="${o.width / 2}" ry="${o.height / 2}" transform="${getTransform(o, false, true, false)} translate(${o.x + (o.width / 2)}, ${o.y + (o.height / 2)})" ${getFill(o)} stroke-width="0.3"/>`;
     },
     POLYGON: o => {
-        return `<polygon ${getId(o)}points="${o.points}" ${getFill(o)} transform="${getTransform(o)}"/>`;
+        return `<polygon ${getId(o)}points="${o.points}" ${getFill(o)} transform="${getTransform(o)}" stroke-width="0.3"/>`;
     },
     LINE: o => {
-        return `<g ${getId(o)}transform="${getTransform(o, false)}">
-                    <line x1="${o.x}" y1="${o.y}" x2="${o.x + o.endPoint.x}" y2="${o.y + o.endPoint.y}" stroke="black" />
-                </g>`;
+        return `<line ${getId(o)} x1="${o.x}" y1="${o.y}" x2="${o.x + o.endPoint.x}" y2="${o.y + o.endPoint.y}" stroke="black" transform="${getTransform(o, false)}" stroke-width="0.3"/>`;
     },
     TEXT: o => {
         if (o.charJSONs) {
@@ -103,7 +100,7 @@ const convert = {
             a.push(`Q ${oLast[1].x} ${oLast[1].y} ${o.points[0].x} ${o.points[0].y}`);
         }
 
-        return `<path ${getId(o)}d="${a.join(' ')}" ${getFill(o)} transform="${getTransform(o, false)}"/>`;
+        return `<path ${getId(o)}d="${a.join(' ')}" ${getFill(o)} transform="${getTransform(o, false)}" stroke-width="0.3"/>`;
     }
 };
 
@@ -118,7 +115,6 @@ let processCanvas = (oJSON, oCanvas) => {
             aOutput.push(fnConvert(oDisplay));
         } else {
             aExcludeLog.push(oDisplay.type);
-            console.log(oDisplay.type);
         }
     });
 
@@ -126,9 +122,6 @@ let processCanvas = (oJSON, oCanvas) => {
         big: bBig,
         title: oCanvas.title.replace("{panel}", "Canvas "),
         svg: `<svg viewBox="0 0 430 ${bBig ? 930 : 390}" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    ${aDefs.join(" ")}
-                </defs>
                 ${aOutput.join("")}
               </svg>`
     };
