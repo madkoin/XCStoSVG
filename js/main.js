@@ -76,10 +76,7 @@ document.getElementById("tab_container").addEventListener("click", e => {
 
     util.downloadBlob(blob, sFile);
 
-    // gtag('event', sEvent, {
-    //     'zip': `${bZip}`,
-    //     'file': sFile
-    // });
+    gtag('event', "Download regular");
 });
 
 document.getElementById("download_zip").addEventListener("click", e => {
@@ -98,4 +95,6 @@ document.getElementById("download_zip").addEventListener("click", e => {
     }
 
     util.downloadAsZip(aFiles, sFileName.slice(0, -4) + ".zip");
+
+    gtag('event', "Download zip");
 });
