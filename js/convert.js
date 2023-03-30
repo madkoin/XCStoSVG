@@ -39,7 +39,8 @@ let getFill = o => {
 
 const convert = {
     PATH: o => {
-        return `<path ${getId(o)}d="${o.dPath}" ${getFill(o)} transform="${getTransform(o, true, false)}"/>`;
+        let sTranslate = `translate(${o.graphicX}, ${o.graphicY})`;
+        return `<path ${getId(o)}d="${o.dPath}" ${getFill(o)} transform="${sTranslate} ${getTransform(o, false, false)}"/>`;
     },
     RECT: o => {
         return `<rect id="${o.id}" width="${o.width}" height="${o.height}" x="${o.x}" y="${o.y}" ${getFill(o)} transform="${getTransform(o, false, true, false)}"/>`;
