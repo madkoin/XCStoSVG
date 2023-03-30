@@ -46,7 +46,7 @@ const convert = {
         return `<rect id="${o.id}" width="${o.width}" height="${o.height}" x="${o.x}" y="${o.y}" ${getFill(o)} transform="${getTransform(o, false, true, false)}"/>`;
     },
     CIRCLE: o => {
-        return `<ellipse ${getId(o)}cx="${o.x}" cy="${o.y}" rx="${o.width / 2}" ry="${o.height / 2}" transform="${getTransform(o, false, true, false)}" ${getFill(o)} />`;
+        return `<ellipse ${getId(o)} rx="${o.width / 2}" ry="${o.height / 2}" transform="${getTransform(o, false, true, false)} translate(${o.x + (o.width / 2)}, ${o.y + (o.height / 2)})" ${getFill(o)} />`;
     },
     POLYGON: o => {
         return `<polygon ${getId(o)}points="${o.points}" ${getFill(o)} transform="${getTransform(o)}"/>`;
