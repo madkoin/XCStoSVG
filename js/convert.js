@@ -1,4 +1,5 @@
-let aExcludeLog = [];
+let aExcludeLog = [],
+    iStroke = 0.6;
 
 let getTransform = (o, bPos = true, bRotate = true, bScale = true) => {
     let s = "";
@@ -39,19 +40,19 @@ let getFill = o => {
 const convert = {
     PATH: o => {
         let sTranslate = `translate(${o.graphicX}, ${o.graphicY})`;
-        return `<path ${getId(o)}d="${o.dPath}" ${getFill(o)} transform="${sTranslate} ${getTransform(o, false, false)}" stroke-width="0.3"/>`;
+        return `<path ${getId(o)}d="${o.dPath}" ${getFill(o)} transform="${sTranslate} ${getTransform(o, false, false)}" stroke-width="${iStroke}"/>`;
     },
     RECT: o => {
-        return `<rect id="${o.id}" width="${o.width}" height="${o.height}" x="${o.x}" y="${o.y}" ${getFill(o)} transform="${getTransform(o, false, true, false)}" stroke-width="0.3"/>`;
+        return `<rect id="${o.id}" width="${o.width}" height="${o.height}" x="${o.x}" y="${o.y}" ${getFill(o)} transform="${getTransform(o, false, true, false)}" stroke-width="${iStroke}"/>`;
     },
     CIRCLE: o => {
-        return `<ellipse ${getId(o)} rx="${o.width / 2}" ry="${o.height / 2}" transform="${getTransform(o, false, true, false)} translate(${o.x + (o.width / 2)}, ${o.y + (o.height / 2)})" ${getFill(o)} stroke-width="0.3"/>`;
+        return `<ellipse ${getId(o)} rx="${o.width / 2}" ry="${o.height / 2}" transform="${getTransform(o, false, true, false)} translate(${o.x + (o.width / 2)}, ${o.y + (o.height / 2)})" ${getFill(o)} stroke-width="${iStroke}"/>`;
     },
     POLYGON: o => {
-        return `<polygon ${getId(o)}points="${o.points}" ${getFill(o)} transform="${getTransform(o)}" stroke-width="0.3"/>`;
+        return `<polygon ${getId(o)}points="${o.points}" ${getFill(o)} transform="${getTransform(o)}" stroke-width="${iStroke}"/>`;
     },
     LINE: o => {
-        return `<line ${getId(o)} x1="${o.x}" y1="${o.y}" x2="${o.x + o.endPoint.x}" y2="${o.y + o.endPoint.y}" stroke="black" transform="${getTransform(o, false)}" stroke-width="0.3"/>`;
+        return `<line ${getId(o)} x1="${o.x}" y1="${o.y}" x2="${o.x + o.endPoint.x}" y2="${o.y + o.endPoint.y}" stroke="black" transform="${getTransform(o, false)}" stroke-width="${iStroke}"/>`;
     },
     TEXT: o => {
         if (o.charJSONs) {
@@ -100,7 +101,10 @@ const convert = {
             a.push(`Q ${oLast[1].x} ${oLast[1].y} ${o.points[0].x} ${o.points[0].y}`);
         }
 
-        return `<path ${getId(o)}d="${a.join(' ')}" ${getFill(o)} transform="${getTransform(o, false)}" stroke-width="0.3"/>`;
+        return `<path ${getId(o)}d="${a.join(' ')}" ${getFill(o)} transform="${getTransform(o, false)}" stroke-width="${iStroke}"/>`;
+    },
+    BITMAP: o => {
+        return `<image ${getId(o)}href="${o.base64}" x="${o.x}" y="${o.y}" height="${o.width}" width="${o.height}" transform="${getTransform(o, false, true, false)}" />`;
     }
 };
 
