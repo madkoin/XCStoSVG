@@ -63,6 +63,5 @@ body {
   background-image: url("../resources/wave8.svg");
   background-repeat: no-repeat;
   background-position: top;
-  background-size: revert;
   height: 100%;
 }
