@@ -21,6 +21,7 @@ main *:not(:defined) {
 }
 
 .result {
+  background-color: white;
   background-size: 286px 286px;
   background-image:
           linear-gradient(to right, var(--grid-dark) 1px, transparent 1px),
@@ -64,4 +65,12 @@ body {
   background-repeat: no-repeat;
   background-position: top;
   height: 100%;
+}
+
+#product_switch {
+  opacity: 0.5;
+}
+
+#tab_container {
+  min-height: 250px;
 }
