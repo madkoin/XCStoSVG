@@ -18,6 +18,7 @@
     "bootstrap": "^5.2.3",
     "client-zip": "^2.3.1",
     "jquery": "^3.6.4",
-    "vite-plugin-handlebars": "^1.6.0"
+    "vite-plugin-handlebars": "^1.6.0",
+    "dompurify": "^3.0.6"
   }
 }

@@ -40,7 +40,9 @@ let getFill = o => {
 const convert = {
     PATH: o => {
         let sTranslate = `translate(${o.graphicX}, ${o.graphicY})`;
-        return `<path ${getId(o)}d="${o.dPath}" ${getFill(o)} transform="${sTranslate} ${getTransform(o, false, false)}" stroke-width="${iStroke}"/>`;
+        let sRotate = o.angle ? ` rotate(${o.angle}, ${o.graphicX}, ${o.graphicY})` : "";
+        let sScale = getTransform(o, false, false);
+        return `<path ${getId(o)}d="${o.dPath}" ${getFill(o)} transform="${sTranslate}${sRotate} ${sScale}" stroke-width="${iStroke}"/>`;
     },
     RECT: o => {
         return `<rect id="${o.id}" width="${o.width}" height="${o.height}" x="${o.x}" y="${o.y}" ${getFill(o)} transform="${getTransform(o, false, true, false)}" stroke-width="${iStroke}"/>`;
@@ -104,7 +106,7 @@ const convert = {
         return `<path ${getId(o)}d="${a.join(' ')}" ${getFill(o)} transform="${getTransform(o, false)}" stroke-width="${iStroke}"/>`;
     },
     BITMAP: o => {
-        return `<image ${getId(o)}href="${o.base64}" x="${o.x}" y="${o.y}" height="${o.width}" width="${o.height}" transform="${getTransform(o, false, true, false)}" />`;
+        return `<image ${getId(o)}href="${o.base64}" x="${o.x}" y="${o.y}" width="${o.width}" height="${o.height}" transform="${getTransform(o, false, true, false)}" />`;
     }
 };
 

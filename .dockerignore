@@ -6,13 +6,12 @@ yarn-error.log*
 .DS_Store
 .env
 .env.*
+.git
+.github
+.vscode
+.idea
+coverage
+.dist
 /dist
 /build
-coverage
-*.zip
-*.log
-
-# OS
-Thumbs.db
-ehthumbs.db
-Desktop.ini
+**/*.map

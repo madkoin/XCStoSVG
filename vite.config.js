@@ -25,7 +25,7 @@ const pageData = {
 
 export default defineConfig(({command, mode, ssrBuild}) => {
     return {
-        base: "/XCStoSVG/",
+        base: "/XCStoSVG-prod/",
         build: {
             rollupOptions: {
                 input: {
