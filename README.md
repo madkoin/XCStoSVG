@@ -27,11 +27,42 @@ Lancer (exposé sur le port 8082):
 docker run --rm -p 8082:80 xcstosvg-prod
 ```
 
-Ouvrir: `http://localhost:8082/XCStoSVG-prod/`
+Ouvrir: `http://localhost:8082/`
 
 Notes:
-- Le `base` Vite est configuré sur `/XCStoSVG-prod/`.
+- Le `base` Vite est configuré sur `/`.
 - Le build est statique, servi par Nginx.
+
+## ▶️ Utilisation sans Docker (npm)
+
+Prérequis: Node 18+ et npm.
+
+Installer les dépendances:
+
+```bash
+npm install
+```
+
+Serveur de développement (Vite):
+
+```bash
+npm run dev
+```
+
+Build de production:
+
+```bash
+npm run build
+```
+
+Aperçu local du build:
+
+```bash
+npm run preview
+```
+
+Notes:
+- Le `base` Vite est `/`, l’application est servie à la racine pendant `preview`.
 
 ## 🔒 Sécurité (état actuel)
 Cette version vise la facilité de déploiement. Des en-têtes de sécurité renforcés (CSP, etc.) peuvent être ajoutés ultérieurement dans `nginx.conf` si nécessaire.
@@ -76,11 +107,42 @@ Run (exposed on port 8082):
 docker run --rm -p 8082:80 xcstosvg-prod
 ```
 
-Open: `http://localhost:8082/XCStoSVG-prod/`
+Open: `http://localhost:8082/`
 
 Notes:
-- Vite `base` is set to `/XCStoSVG-prod/`.
+- Vite `base` is set to `/`.
 - Static build served by Nginx.
+
+## ▶️ Run without Docker (npm)
+
+Requirements: Node 18+ and npm.
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Dev server (Vite):
+
+```bash
+npm run dev
+```
+
+Production build:
+
+```bash
+npm run build
+```
+
+Preview the built app:
+
+```bash
+npm run preview
+```
+
+Notes:
+- Vite `base` is `/`, so the app is served at root during `preview`.
 
 ## 🔒 Security (current state)
 This release prioritizes ease of deployment. Stronger security headers (CSP, etc.) can be enabled later in `nginx.conf` if needed.
