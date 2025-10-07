@@ -40,17 +40,11 @@ Cette version vise la facilité de déploiement. Des en-têtes de sécurité ren
 Ce projet a été structuré et une partie du code a été générée/assistée par une IA. Merci de prendre cela en compte lors des revues et contributions.
 
 ## 📷 Comparaison visuelle (information uniquement)
-La première image ci‑dessous montre un résultat obtenu avec l’outil de Nanovsky, la seconde montre le résultat de cette implémentation. Cette comparaison est fournie à titre informatif uniquement, sans intention de dénigrer l’outil de Nanovsky.
+Comparaison neutre, à titre informatif uniquement (aucun dénigrement de l’outil de Nanovsky).
 
-<a href="resources/compare-nanovsky.png">
-  <img src="resources/compare-nanovsky.png" alt="Résultat Nanovsky" width="420" />
-  <br/><sub>Cliquez pour la taille originale</sub>
-</a>
-
-<a href="resources/compare-me.png">
-  <img src="resources/compare-me.png" alt="Résultat XCStoSVG (cette version)" width="420" />
-  <br/><sub>Cliquez pour la taille originale</sub>
-</a>
+| Outil de Nanovsky | Cette implémentation |
+| --- | --- |
+| [<img src="resources/compare-nanovsky.png" alt="Résultat Nanovsky" width="360" />](resources/compare-nanovsky.png) | [<img src="resources/compare-me.png" alt="Résultat XCStoSVG (cette version)" width="360" />](resources/compare-me.png) |
 
 Placez vos captures dans `resources/compare-nanovsky.png` et `resources/compare-ours.png` pour qu’elles s’affichent dans ce README.
 
@@ -92,17 +86,11 @@ Notes:
 This release prioritizes ease of deployment. Stronger security headers (CSP, etc.) can be enabled later in `nginx.conf` if needed.
 
 ## 📷 Visual comparison (for information only)
-The first screenshot below shows a result from Nanovsky’s tool; the second shows this implementation’s result. This is meant for neutral comparison only, not to disparage Nanovsky’s work.
+Neutral comparison for information only (no disparagement of Nanovsky’s work).
 
-<a href="resources/compare-nanovsky.png">
-  <img src="resources/compare-nanovsky.png" alt="Nanovsky result" width="420" />
-  <br/><sub>Click for full size</sub>
-</a>
-
-<a href="resources/compare-me.png">
-  <img src="resources/compare-me.png" alt="XCStoSVG result (this version)" width="420" />
-  <br/><sub>Click for full size</sub>
-</a>
+| Nanovsky’s tool | This implementation |
+| --- | --- |
+| [<img src="resources/compare-nanovsky.png" alt="Nanovsky result" width="360" />](resources/compare-nanovsky.png) | [<img src="resources/compare-me.png" alt="XCStoSVG result (this version)" width="360" />](resources/compare-me.png) |
 
 Put your screenshots at `resources/compare-nanovsky.png` and `resources/compare-me.png` so they display here.
 
