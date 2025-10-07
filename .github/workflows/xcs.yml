@@ -24,7 +24,7 @@ jobs:
           node-version: 18
           cache: npm
       - name: Install
-        run: npm install   # au lieu de npm ci
+        run: npm ci
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
