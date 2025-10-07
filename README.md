@@ -39,6 +39,15 @@ Cette version vise la facilité de déploiement. Des en-têtes de sécurité ren
 ## 🤖 À propos de l’IA
 Ce projet a été structuré et une partie du code a été générée/assistée par une IA. Merci de prendre cela en compte lors des revues et contributions.
 
+## 📷 Comparaison visuelle (information uniquement)
+La première image ci‑dessous montre un résultat obtenu avec l’outil de Nanovsky, la seconde montre le résultat de cette implémentation. Cette comparaison est fournie à titre informatif uniquement, sans intention de dénigrer l’outil de Nanovsky.
+
+![Résultat Nanovsky](resources/compare-nanovsky.png)
+
+![Résultat XCStoSVG (cette version)](resources/compare-ours.png)
+
+Placez vos captures dans `resources/compare-nanovsky.png` et `resources/compare-ours.png` pour qu’elles s’affichent dans ce README.
+
 ## 📄 Licence
 MIT — voir le fichier `LICENSE`.
 
@@ -75,6 +84,15 @@ Notes:
 
 ## 🔒 Security (current state)
 This release prioritizes ease of deployment. Stronger security headers (CSP, etc.) can be enabled later in `nginx.conf` if needed.
+
+## 📷 Visual comparison (for information only)
+The first screenshot below shows a result from Nanovsky’s tool; the second shows this implementation’s result. This is meant for neutral comparison only, not to disparage Nanovsky’s work.
+
+![Nanovsky result](resources/compare-nanovsky.png)
+
+![XCStoSVG result (this version)](resources/compare-ours.png)
+
+Put your screenshots at `resources/compare-nanovsky.png` and `resources/compare-me.png` so they display here.
 
 ## 🤖 About AI Assistance
 This repository was set up and partially implemented with the help of an AI assistant. Please keep this in mind when reviewing and contributing.
