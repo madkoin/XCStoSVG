@@ -44,7 +44,7 @@ La première image ci‑dessous montre un résultat obtenu avec l’outil de Nan
 
 ![Résultat Nanovsky](resources/compare-nanovsky.png)
 
-![Résultat XCStoSVG (cette version)](resources/compare-ours.png)
+![Résultat XCStoSVG (cette version)](resources/compare-me.png)
 
 Placez vos captures dans `resources/compare-nanovsky.png` et `resources/compare-ours.png` pour qu’elles s’affichent dans ce README.
 
@@ -90,7 +90,7 @@ The first screenshot below shows a result from Nanovsky’s tool; the second sho
 
 ![Nanovsky result](resources/compare-nanovsky.png)
 
-![XCStoSVG result (this version)](resources/compare-ours.png)
+![XCStoSVG result (this version)](resources/compare-me.png)
 
 Put your screenshots at `resources/compare-nanovsky.png` and `resources/compare-me.png` so they display here.
 
