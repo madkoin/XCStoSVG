@@ -42,9 +42,15 @@ Ce projet a été structuré et une partie du code a été générée/assistée 
 ## 📷 Comparaison visuelle (information uniquement)
 La première image ci‑dessous montre un résultat obtenu avec l’outil de Nanovsky, la seconde montre le résultat de cette implémentation. Cette comparaison est fournie à titre informatif uniquement, sans intention de dénigrer l’outil de Nanovsky.
 
-![Résultat Nanovsky](resources/compare-nanovsky.png)
+<a href="resources/compare-nanovsky.png">
+  <img src="resources/compare-nanovsky.png" alt="Résultat Nanovsky" width="420" />
+  <br/><sub>Cliquez pour la taille originale</sub>
+</a>
 
-![Résultat XCStoSVG (cette version)](resources/compare-me.png)
+<a href="resources/compare-me.png">
+  <img src="resources/compare-me.png" alt="Résultat XCStoSVG (cette version)" width="420" />
+  <br/><sub>Cliquez pour la taille originale</sub>
+</a>
 
 Placez vos captures dans `resources/compare-nanovsky.png` et `resources/compare-ours.png` pour qu’elles s’affichent dans ce README.
 
@@ -88,9 +94,15 @@ This release prioritizes ease of deployment. Stronger security headers (CSP, etc
 ## 📷 Visual comparison (for information only)
 The first screenshot below shows a result from Nanovsky’s tool; the second shows this implementation’s result. This is meant for neutral comparison only, not to disparage Nanovsky’s work.
 
-![Nanovsky result](resources/compare-nanovsky.png)
+<a href="resources/compare-nanovsky.png">
+  <img src="resources/compare-nanovsky.png" alt="Nanovsky result" width="420" />
+  <br/><sub>Click for full size</sub>
+</a>
 
-![XCStoSVG result (this version)](resources/compare-me.png)
+<a href="resources/compare-me.png">
+  <img src="resources/compare-me.png" alt="XCStoSVG result (this version)" width="420" />
+  <br/><sub>Click for full size</sub>
+</a>
 
 Put your screenshots at `resources/compare-nanovsky.png` and `resources/compare-me.png` so they display here.
 
