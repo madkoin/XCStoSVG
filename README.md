@@ -77,13 +77,6 @@ Comparaison neutre, à titre informatif uniquement (aucun dénigrement de l’ou
 | --- | --- |
 | [<img src="resources/compare-nanovsky.png" alt="Résultat Nanovsky" width="360" />](resources/compare-nanovsky.png) | [<img src="resources/compare-me.png" alt="Résultat XCStoSVG (cette version)" width="360" />](resources/compare-me.png) |
 
-Placez vos captures dans `resources/compare-nanovsky.png` et `resources/compare-ours.png` pour qu’elles s’affichent dans ce README.
-
-## 📄 Licence
-MIT — voir le fichier `LICENSE`.
-
----
-
 ## 🇬🇧 Overview
 
 Production-ready XCS (XTool Creative Space) to SVG converter. The app is built with Vite (static output) and served by Nginx inside a Docker container.
@@ -154,10 +147,7 @@ Neutral comparison for information only (no disparagement of Nanovsky’s work).
 | --- | --- |
 | [<img src="resources/compare-nanovsky.png" alt="Nanovsky result" width="360" />](resources/compare-nanovsky.png) | [<img src="resources/compare-me.png" alt="XCStoSVG result (this version)" width="360" />](resources/compare-me.png) |
 
-Put your screenshots at `resources/compare-nanovsky.png` and `resources/compare-me.png` so they display here.
 
 ## 🤖 About AI Assistance
 This repository was set up and partially implemented with the help of an AI assistant. Please keep this in mind when reviewing and contributing.
 
-## 📄 License
-MIT — see `LICENSE`.
