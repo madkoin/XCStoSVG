@@ -9,8 +9,8 @@ Convertisseur de fichiers XCS (XTool Creative Space) vers SVG — version prête
 Ce dépôt contient la version "production" du convertisseur XCS → SVG. L’application est packagée avec Vite (build statique) et servie par Nginx dans un conteneur Docker.
 
 ### Fonctionnalités
-- Import d’un fichier `.xcs` et conversion en un ou plusieurs SVG
-- Téléchargement individuel ou au format `.zip`
+- Import d’un fichier `.xcs` et conversion en un SVG
+- Téléchargement individuel
 - Interface basée sur UI5 Web Components
 
 ## 🚀 Démarrage rapide (Docker)
@@ -89,8 +89,8 @@ MIT — voir le fichier `LICENSE`.
 Production-ready XCS (XTool Creative Space) to SVG converter. The app is built with Vite (static output) and served by Nginx inside a Docker container.
 
 ### Features
-- Import `.xcs` and convert to one or multiple SVGs
-- Download single SVGs or a `.zip`
+- Import `.xcs` and convert to one SVG
+- Download single SVG
 - UI built with UI5 Web Components
 
 ## 🚀 Quick start (Docker)
